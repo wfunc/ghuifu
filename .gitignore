@@ -1,0 +1,100 @@
+# Go build artifacts
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+ghuifu
+ghuifu-*
+
+# Go test files
+*.test
+*.out
+
+# Go coverage files  
+*.cover
+*.coverprofile
+
+# Go workspace file
+go.work
+
+# Build directory
+build/
+dist/
+
+# Logs
+*.log
+server.log
+
+# Configuration files (potentially containing sensitive data)
+config.json
+*.key
+*.pem
+*.p12
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Go module download cache
+go.sum.backup
+
+# Test coverage
+coverage.html
+coverage.out
+
+# Binaries for programs and plugins
+*.a
+*.o
+
+# Dependency directories (uncomment if using vendor)
+# vendor/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Diagnostic reports
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Optional npm cache directory (if using Node.js tools)
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# Local development certificates
+localhost.crt
+localhost.key
+
+# Sensitive configuration examples (keep .example files)
+config.production.json
+config.development.json

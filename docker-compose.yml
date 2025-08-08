@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  huifu-config:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: huifu-config-system
+    ports:
+      - "8080:8080"
+    environment:
+      - GIN_MODE=release
+      - PORT=8080
+    volumes:
+      # 持久化配置文件
+      - ./data:/app/config
+      # 如果需要自定义静态文件
+      - ./static:/app/static:ro
+    restart: unless-stopped
+    networks:
+      - huifu-network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8080/api/configs"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  # 可选：添加Nginx反向代理
+  nginx:
+    image: nginx:alpine
+    container_name: huifu-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - huifu-config
+    networks:
+      - huifu-network
+    restart: unless-stopped
+
+networks:
+  huifu-network:
+    driver: bridge
+
+volumes:
+  config-data:

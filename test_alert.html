@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Alert Test</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .alert {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+            overflow-wrap: break-word;
+            max-width: 100%;
+            line-height: 1.6;
+        }
+
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .alert-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .alert-info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background: #667eea;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Alert Display Test</h1>
+
+        <div id="alertBox" class="alert alert-success" style="display: none;"></div>
+
+        <button onclick="showShortMessage()">Show Short Message</button>
+        <button onclick="showLongMessage()">Show Long Message</button>
+        <button onclick="showMultiLineMessage()">Show Multi-line Message</button>
+
+        <script>
+            function showAlert(message, type = 'success') {
+                const alertBox = document.getElementById('alertBox');
+                alertBox.className = `alert alert-${type}`;
+                alertBox.innerHTML = message.replace(/\n/g, '<br>');
+                alertBox.style.display = 'block';
+
+                setTimeout(() => {
+                    alertBox.style.display = 'none';
+                }, 5000);
+            }
+
+            function showShortMessage() {
+                showAlert('配置成功！', 'success');
+            }
+
+            function showLongMessage() {
+                showAlert('这是一个非常长的消息，包含很多信息。配置已经成功保存到系统中。所有的参数都已经验证通过，包括系统ID、产品ID、RSA私钥、微信小程序AppID和路径等。', 'info');
+            }
+
+            function showMultiLineMessage() {
+                let message = '✅ 微信商户配置成功！\n';
+                message += '汇付ID: xxx\n';
+                message += '微信AppID: wx1234567890abcdef\n';
+                message += '状态: 根据渠道号或微信子商户号未查到入驻记录\n';
+                message += '时间: 2025-08-08 13:19:47';
+                showAlert(message, 'success');
+            }
+        </script>
+    </div>
+</body>
+
+</html>
