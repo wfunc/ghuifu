@@ -175,7 +175,7 @@ func main() {
 	}
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = "8080" // 默认端口
+		port = "40004" // 默认端口
 	}
 	log.Println("Server starting on :" + port + "...")
 	if err := r.Run(":" + port); err != nil {

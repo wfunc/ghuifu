@@ -84,7 +84,7 @@ BINARY="./ghuifu-$ARCH"
 
 echo "🏗️  启动汇付支付配置管理系统..."
 echo "📋 检测到系统架构: $ARCH"
-echo "🌐 服务将运行在: http://localhost:\${PORT:-8080}"
+echo "🌐 服务将运行在: http://localhost:\${PORT:-40004}"
 echo "⏹️  按 Ctrl+C 停止服务"
 echo ""
 
@@ -136,14 +136,14 @@ echo ""
 # 端口配置
 while true; do
     echo "🌐 服务端口配置："
-    echo "   默认端口: 8080"
-    echo "   常用端口: 3000, 8000, 8080, 8888, 9000"
+    echo "   默认端口: 40004"
+    echo "   常用端口: 3000, 8000, 8080, 8888, 9000, 40004"
     echo ""
-    read -p "请输入服务端口 (直接回车使用默认端口 8080): " SERVICE_PORT
+    read -p "请输入服务端口 (直接回车使用默认端口 40004): " SERVICE_PORT
     
     # 如果用户直接回车，使用默认端口
     if [ -z "$SERVICE_PORT" ]; then
-        SERVICE_PORT=8080
+        SERVICE_PORT=40004
         echo "✅ 使用默认端口: $SERVICE_PORT"
         break
     fi
@@ -464,7 +464,7 @@ EOF
 @echo off
 title 汇付支付配置管理系统
 echo 🏗️  启动汇付支付配置管理系统...
-echo 🌐 服务将运行在: http://localhost:%PORT%（默认8080）
+echo 🌐 服务将运行在: http://localhost:%PORT%（默认40004）
 echo ⏹️  按 Ctrl+C 停止服务
 echo.
 %~dp0ghuifu.exe
@@ -530,7 +530,7 @@ if %errorlevel% equ 0 (
     echo    删除服务: sc delete %SERVICE_NAME%
     echo    查看服务: services.msc
     echo.
-    echo 🌐 服务地址: http://localhost:8080
+    echo 🌐 服务地址: http://localhost:40004
     echo.
     
     set /p choice="是否现在启动服务? (Y/N): "
@@ -652,7 +652,7 @@ echo "🚀 部署方式："
 echo "  1. 选择对应操作系统的压缩包"
 echo "  2. 解压到目标目录"
 echo "  3. 运行 start.sh/start.bat 启动服务"
-echo "  4. 访问 http://localhost:8080 使用系统"
+echo "  4. 访问 http://localhost:40004 使用系统（默认端口）"
 echo ""
 echo "💡 特性说明："
 echo "  • Linux/macOS版本会自动检测系统架构(AMD64/ARM64)"

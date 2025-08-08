@@ -67,7 +67,7 @@ GOOS=linux GOARCH=arm64 go build -o ghuifu-linux-arm64
 ## 📖 使用说明
 
 ### 1. 系统配置
-1. 访问 http://localhost:8080
+1. 访问 http://localhost:40004
 2. 填入系统参数 (sys_id, product_id, rsa_private_key)
 3. 选择环境 (测试/生产)
 4. 保存配置

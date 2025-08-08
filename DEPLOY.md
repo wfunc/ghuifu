@@ -123,7 +123,7 @@ launchctl unload ~/Library/LaunchAgents/com.ghuifu.payment-config.plist
 
 ### 4. 访问系统
 
-打开浏览器访问: http://localhost:8080
+打开浏览器访问: http://localhost:40004
 
 ---
 
@@ -158,7 +158,7 @@ ghuifu-{platform}/
 
 ### 环境要求
 
-- **端口**: 确保8080端口未被占用
+- **端口**: 确保40004端口未被占用
 - **网络**: 需要访问汇付支付API的网络连接
 - **权限**: 需要创建临时配置文件的写入权限
 
@@ -233,7 +233,7 @@ ghuifu-{platform}/
 - **安全存储**: 密钥仅在内存中临时存储，重启后清空
 
 ### 网络安全
-- 系统默认监听本地8080端口
+- 系统默认监听本地40004端口
 - 生产环境建议配置反向代理和HTTPS
 - 建议通过防火墙限制访问
 
@@ -251,10 +251,10 @@ ghuifu-{platform}/
 **Q1: 端口8080被占用**
 ```bash
 # Linux/macOS 查看端口占用
-lsof -i:8080
+lsof -i:40004
 
 # Windows 查看端口占用
-netstat -ano | findstr 8080
+netstat -ano | findstr 40004
 
 # 解决方案：停止占用进程或修改源码中的端口号重新编译
 ```
@@ -333,4 +333,4 @@ ghuifu.exe > ghuifu.log 2>&1
 
 ---
 
-**部署完成后，即可通过浏览器访问 http://localhost:8080 开始使用汇付支付配置管理系统！** 🎉
+**部署完成后，即可通过浏览器访问 http://localhost:40004 开始使用汇付支付配置管理系统！** 🎉
